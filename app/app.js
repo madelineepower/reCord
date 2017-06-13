@@ -1,6 +1,6 @@
 "use strict";
 
-const app = angular.module('reCord', ["ngRoute"]);
+const app = angular.module('reCord', ["ngRoute", "ui.materialize"]);
 
 app.config(function($routeProvider) {
   $routeProvider.
@@ -12,6 +12,7 @@ app.config(function($routeProvider) {
   }).
   when('/timer', {
     templateUrl: 'partials/timerView.html',
+    controller: 'SoundCtrl'
   }).
   when('/exercises', {
     templateUrl: 'partials/exercises.html',

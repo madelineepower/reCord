@@ -2,12 +2,14 @@
   <div id="noteDiv">
     <p>NOTE</p>
     <div input-field>
-      <select class="browser-default" material-select watch>
-          <option>C4</option>
+      <select class="browser-default" name="selectedNote" ng-model="selected.note" ng-options="note.note for note in notesArray" material-select watch>
+      <option value="">Select a note</option>
+      <option></option>
       </select>
     </div>
     <div>
-      <a class="btn">Play</a>
+      <a ng-show="!tonePlaying" ng-click="playTone()" class="btn">Play</a>
+      <a ng-show="tonePlaying" ng-click="stopTone()" class="btn">Mute</a>
     </div>
   </div>
 
@@ -23,3 +25,7 @@
     <a class="right">reCord</a>
   </div>
 </div>
+
+<!-- <select name="selectedBoard" ng-model="selectedBoard.board" class="browser-default" material-select watch ng-options="board.title for board in boardArray">
+                        <option value="">Select A Board</option>
+                    </select> -->
