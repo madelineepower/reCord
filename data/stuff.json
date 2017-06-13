@@ -1,0 +1,23 @@
+{
+  "users": {
+    "0": {
+      "firstName": "Madeline",
+      "lastName": "Power",
+      "uid": "0"
+    }
+  },
+  "exercises": {
+    "0": {
+      "id": "0",
+      "uid": "0",
+      "second": "35s",
+      "dateCompleted": "6/12/17"
+    },
+    "1": {
+      "id": "1",
+      "uid": "0",
+      "second": "40s",
+      "dateCompleted": "6/12/17"
+    }
+  }  
+}

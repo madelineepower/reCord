@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./lib/node_modules/materialize-css/dist/css/materialize.min.css">
     <link rel="stylesheet" href="css/main.css">
     <title>reCord</title>
   </head>
-  <body>
+  <body ng-app="reCord">
+    <div ng-include="'partials/NavBar.html'"></div>
+    <div ng-view>
 
+    </div>
 
 
 
