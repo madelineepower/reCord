@@ -13,21 +13,29 @@
     </div>
   </div>
 <div>
-  <div id="timerCircle">
-      <h3>{{ elapsedSeconds | date: 's'}}</h3>
+  <div id="timerCircle" ng-controller="TimeCircleCtrl">
+    <div class="timer-container">
+        <div class="progress ng-cloak" ng-style="getStyle()">{{ elapsedSeconds | date: 's'}}</div>
+          <round-progress
+                    max="24"
+                    current="elapsedSeconds"
+                    color="#45ccce"
+                    bgcolor="transparent"
+                    radius="{{ radius*1.5 }}"
+                    semi="isSemi"
+                    rounded="rounded"
+                    clockwise="clockwise"
+                    responsive="responsive"
+                    stroke="{{ stroke*1.5 }}"
+                    animation="{{ currentAnimation }}">
+          </round-progress>
+      </div>
       <div>
         <a ng-click="start()" class="btn">start</a>
         <a ng-click="stop()" class="btn" data-target='saveModal' modal>stop</a>
         <a ng-click="reset()" class="btn">reset</a>
       </div>
   </div>
-
-<div class="footer-copyright">
-  <div class="container">
-    DATE
-    <a class="right">reCord</a>
-  </div>
-</div>
 
 <!-- Save Modal Content -->
     <div id="saveModal" class="modal">

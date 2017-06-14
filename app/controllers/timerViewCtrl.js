@@ -1,11 +1,11 @@
 "use strict";
 
-app.controller('TimerViewCtrl', function($scope, $interval, $timeout, DataFactory) {
+app.controller('TimerViewCtrl', function($scope, $interval, $timeout, DataFactory, AuthFactory) {
     $scope.format = '';
     $scope.startTime = "";
     $scope.new = "";
     var timerPromise;
-    var user = "abc";
+    var user = AuthFactory.getUser();
     $scope.elapsedSeconds = 0;
     $scope.totalElapsedTime = 0;
     $scope.newExerciseObject = {

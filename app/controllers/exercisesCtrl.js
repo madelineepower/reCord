@@ -1,8 +1,8 @@
 "use strict";
 
-app.controller('ExercisesCtrl', function($scope, DataFactory) {
+app.controller('ExercisesCtrl', function($scope, DataFactory, AuthFactory) {
 
-  var user = "abc";
+  var user = AuthFactory.getUser();
 
 $scope.getExerciseList = function() {
     DataFactory.getUserExerciseList(user)
