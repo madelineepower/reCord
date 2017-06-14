@@ -12,10 +12,11 @@ app.config(function($routeProvider) {
   }).
   when('/timer', {
     templateUrl: 'partials/timerView.html',
-    controller: 'SoundCtrl'
+    controller: 'TimerViewCtrl'
   }).
   when('/exercises', {
     templateUrl: 'partials/exercises.html',
+    controller: 'ExercisesCtrl'
   }).
   otherwise('/');
 });

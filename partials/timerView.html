@@ -1,5 +1,5 @@
 <div class="container center">
-  <div id="noteDiv">
+  <div id="noteDiv" ng-controller="SoundCtrl">
     <p>NOTE</p>
     <div input-field>
       <select class="browser-default" name="selectedNote" ng-model="selected.note" ng-options="note.note for note in notesArray" material-select watch>
@@ -12,15 +12,15 @@
       <a ng-show="tonePlaying" ng-click="stopTone()" class="btn">Mute</a>
     </div>
   </div>
-
-  <div ng-controller="timeCircleCtrl" id="timeCircles">
-      <h3>{{ elapsedSeconds | date: 's:sss'}}</h3>
+<div>
+  <div id="timerCircle">
+      <h3>{{ elapsedSeconds | date: 's'}}</h3>
       <div>
         <a ng-click="start()" class="btn">start</a>
-        <a ng-click="stop()" class="btn">stop</a>
+        <a ng-click="stop()" class="btn" data-target='saveModal' modal>stop</a>
+        <a ng-click="reset()" class="btn">reset</a>
       </div>
   </div>
-</div>
 
 <div class="footer-copyright">
   <div class="container">
@@ -29,6 +29,16 @@
   </div>
 </div>
 
-<!-- <select name="selectedBoard" ng-model="selectedBoard.board" class="browser-default" material-select watch ng-options="board.title for board in boardArray">
-                        <option value="">Select A Board</option>
-                    </select> -->
+<!-- Save Modal Content -->
+    <div id="saveModal" class="modal">
+          <div class="modal-content">
+                <h4>Save?</h4>
+                <h5>Date: {{startTime | date : 'shortDate'}}</h5>
+                <h5>Total Time: {{totalElapsedTime | date: 's'}} seconds</h5>
+          </div>
+    <div class="modal-footer">
+      <a ng-click="makeNewObj()" class="modal-action modal-close waves-effect waves-green btn-flat">yes</a>
+      <a class="modal-action modal-close waves-effect waves-green btn-flat">no</a>
+      </div>
+    </div>
+</div>
