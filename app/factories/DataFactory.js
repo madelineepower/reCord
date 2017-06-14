@@ -35,7 +35,17 @@ app.factory("DataFactory", function($q, $http, FBCreds) {
       });
     };
 
-    //deleteExercise
+    const deleteExercise = (exerciseId) => {
+      return $q((resolve, reject) => {
+        $http.delete(`${FBCreds.databaseURL}/exercises/${exerciseId}.json`)
+        .then((response) => {
+          resolve(response);
+        })
+        .catch((error) => {
+          reject(error);
+        });
+      });
+    };
 
 const addUser = function(newUser){
    return $q((resolve, reject)=>{
@@ -53,7 +63,8 @@ const addUser = function(newUser){
     return {
     addExercise,
     getUserExerciseList,
-    addUser
+    addUser,
+    deleteExercise
   };
 
 

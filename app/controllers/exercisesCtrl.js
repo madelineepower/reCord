@@ -7,9 +7,18 @@ app.controller('ExercisesCtrl', function($scope, DataFactory) {
 $scope.getExerciseList = function() {
     DataFactory.getUserExerciseList(user)
     .then(function(data){
-      console.log(data);
+      $scope.exercises = data;
+      console.log("all exercises", $scope.exercises);
     });
   };
 
-  $scope.getExerciseList(user);
+$scope.getExerciseList(user);
+
+$scope.deleteExercise = function (exerciseID) {
+    DataFactory.deleteExercise(exerciseID)
+    .then( () => {
+      $scope.getExerciseList();
+    });
+  };
+
 });

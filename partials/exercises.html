@@ -1,5 +1,7 @@
 <h1>Exercises</h1>
 
-<div>
-  <!-- exerciseList will go here -->
+<div ng-repeat= "exercise in exercises">
+  <div><h5>{{exercise.dateOfExercise | date : 'short'}}</h5></div>
+  <div><h5>{{exercise.milliseconds | date : 's'}} seconds</h5></div>
+  <a ng-click="deleteExercise(exercise.id)" class="btn">Delete</a>
 </div>
