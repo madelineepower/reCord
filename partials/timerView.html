@@ -13,9 +13,12 @@
     </div>
   </div>
 
-  <div id="timerDiv">THE TIME CIRCLE WILL GO HERE</div>
-  <div>
-    <a class="btn">start</a>
+  <div ng-controller="timeCircleCtrl" id="timeCircles">
+      <h3>{{ elapsedSeconds | date: 's:sss'}}</h3>
+      <div>
+        <a ng-click="start()" class="btn">start</a>
+        <a ng-click="stop()" class="btn">stop</a>
+      </div>
   </div>
 </div>
 

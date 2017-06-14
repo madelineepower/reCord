@@ -39,6 +39,7 @@ let getNotes = function(){
   });
 };
 getNotes();
+
 $scope.selected = {
   note: ""
 };

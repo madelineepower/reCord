@@ -3,3 +3,4 @@ lib/node_modules
 lib/.sass-cache
 values/
 css/
+lib/bower_components
