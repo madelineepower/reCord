@@ -2,8 +2,8 @@
 
 app.controller('TimeCircleCtrl', ['$scope', '$interval', '$timeout', '$window', 'roundProgressService', function($scope, $interval, $timeout, $window, roundProgressService){
 
-    $scope.current =        27;
-    $scope.max =            50;
+    $scope.current =        0;
+    $scope.max =            60;
     $scope.offset =         0;
     $scope.timerCurrent =   0;
     $scope.uploadCurrent =  0;
@@ -14,7 +14,7 @@ app.controller('TimeCircleCtrl', ['$scope', '$interval', '$timeout', '$window', 
     $scope.responsive =     false;
     $scope.clockwise =      true;
     $scope.currentColor =   '#45ccce';
-    $scope.bgColor =        '#eaeaea';
+    $scope.bgColor =        '#b5b2b2';
     $scope.duration =       800;
     $scope.currentAnimation = 'easeOutCubic';
     $scope.animationDelay = 0;
@@ -47,34 +47,4 @@ app.controller('TimeCircleCtrl', ['$scope', '$interval', '$timeout', '$window', 
         };
     };
 
-    $scope.getColor = function(){
-        return $scope.gradient ? 'url(#gradient)' : $scope.currentColor;
-    };
-
-    $scope.showPreciseCurrent = function(amount){
-        $timeout(function(){
-            if(amount <= 0){
-                $scope.preciseCurrent = $scope.current;
-            }else{
-                var math = $window.Math;
-                $scope.preciseCurrent = math.min(math.round(amount), $scope.max);
-            }
-        });
-    };
-
-    var getPadded = function(val){
-        return val < 10 ? ('0' + val) : val;
-    };
-
-    $interval(function(){
-        var date = new Date();
-        var hours = date.getHours();
-        var minutes = date.getMinutes();
-        var seconds = date.getSeconds();
-
-        $scope.hours = hours;
-        $scope.minutes = minutes;
-        $scope.seconds = seconds;
-        $scope.time = getPadded(hours) + ':' + getPadded(minutes) + ':' + getPadded(seconds);
-    }, 1000);
 }]);

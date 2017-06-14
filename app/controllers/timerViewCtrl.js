@@ -13,7 +13,7 @@ app.controller('TimerViewCtrl', function($scope, $interval, $timeout, DataFactor
       dateOfExercise: "",
       uid: user
     };
-
+    $scope.timerSeconds = 0;
   $scope.start = function() {
     if (!timerPromise) {
       $scope.startTime = new Date();
@@ -21,6 +21,7 @@ app.controller('TimerViewCtrl', function($scope, $interval, $timeout, DataFactor
       timerPromise = $interval(function() {
         var now = new Date();
         $scope.elapsedSeconds = now.getTime() - $scope.startTime.getTime();
+        $scope.timerSeconds = ($scope.elapsedSeconds/1000);
       }, 1);
     }
   };
@@ -43,6 +44,7 @@ app.controller('TimerViewCtrl', function($scope, $interval, $timeout, DataFactor
 
   $scope.reset = function() {
     $scope.elapsedSeconds = 0;
+    $scope.timerSeconds = 0;
   };
 
   $scope.makeNewObj = function() {
