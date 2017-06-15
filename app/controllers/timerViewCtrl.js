@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('TimerViewCtrl', function($scope, $interval, $timeout, DataFactory, AuthFactory) {
+app.controller('TimerViewCtrl', function($scope, $interval, $timeout, DataFactory, AuthFactory, SelectedNoteData) {
     $scope.format = '';
     $scope.startTime = "";
     $scope.new = "";
@@ -11,9 +11,12 @@ app.controller('TimerViewCtrl', function($scope, $interval, $timeout, DataFactor
     $scope.newExerciseObject = {
       milliseconds: "",
       dateOfExercise: "",
+      note: "",
       uid: user
     };
     $scope.timerSeconds = 0;
+    $scope.selected = SelectedNoteData;
+
   $scope.start = function() {
     if (!timerPromise) {
       $scope.startTime = new Date();
@@ -39,6 +42,8 @@ app.controller('TimerViewCtrl', function($scope, $interval, $timeout, DataFactor
       $scope.totalElapsedTime = $scope.elapsedSeconds;
       $scope.newExerciseObject.milliseconds = $scope.totalElapsedTime;
       $scope.newExerciseObject.dateOfExercise = $scope.startTime;
+      $scope.newExerciseObject.note = $scope.selected.note.note;
+      console.log($scope.newExerciseObject);
       return $scope.newExerciseObject;
   };
 

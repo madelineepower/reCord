@@ -1,5 +1,6 @@
+<div ng-controller="SoundCtrl">
 <div class="container center">
-  <div id="noteDiv" ng-controller="SoundCtrl">
+  <div id="noteDiv">
     <p>NOTE</p>
     <div input-field>
       <select class="browser-default" name="selectedNote" ng-model="selected.note" ng-options="note.note for note in notesArray" material-select watch>
@@ -12,7 +13,7 @@
       <a ng-show="tonePlaying" ng-click="stopTone()" class="btn">Mute</a>
     </div>
   </div>
-<div>
+
   <div id="timerCircle" ng-controller="TimeCircleCtrl">
     <div class="progress-wrapper">
         <div class="progress-circle ng-cloak" ng-style="getStyle()">
@@ -36,10 +37,11 @@
       </div>
       <div>
         <a ng-click="start()" class="btn">start</a>
-        <a ng-click="stop()" class="btn" data-target='saveModal' modal>stop</a>
+        <a ng-click="stop();stopTone()" class="btn" data-target='saveModal' modal>stop</a>
         <a ng-click="reset()" class="btn">reset</a>
       </div>
   </div>
+</div>
 
 <!-- Save Modal Content -->
     <div id="saveModal" class="modal">
@@ -47,6 +49,7 @@
                 <h4>Save?</h4>
                 <h5>Date: {{startTime | date : 'shortDate'}}</h5>
                 <h5>Total Time: {{totalElapsedTime | date: 's'}} seconds</h5>
+                <h5>{{selected.note.note}}</h5>
           </div>
     <div class="modal-footer">
       <a ng-click="makeNewObj()" class="modal-action modal-close waves-effect waves-green btn-flat">yes</a>

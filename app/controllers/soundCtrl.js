@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('SoundCtrl', function($scope) {
+app.controller('SoundCtrl', function($scope, SelectedNoteData) {
 
 //make sure window is supported
   var isAudioContextSupported = function () {
@@ -26,7 +26,7 @@ var oscillator = audioContext.createOscillator();
 var gainNode = audioContext.createGain();
 //give the oscialltor note a destination(device speaker)
 gainNode.connect(audioContext.destination);
-oscillator.type = 'sine';
+oscillator.type = 'triangle';
 
 //get the frequencies
 
@@ -40,13 +40,11 @@ let getNotes = function(){
 };
 getNotes();
 
-$scope.selected = {
-  note: ""
-};
+$scope.selected = SelectedNoteData;
+$scope.frequency = {};
 
 let setFrequency = function(){
   var newNote = $scope.selected.note;
-  $scope.frequency = {};
   $scope.frequency = newNote.frequency;
   console.log($scope.frequency);
   //give the oscillator a frequency value
@@ -63,8 +61,11 @@ $scope.playTone = function(event) {
 
 //stop the tone
 $scope.stopTone = function(event) {
-  oscillator.disconnect(gainNode);
-  $scope.tonePlaying = false;
+  if ( $scope.tonePlaying) {
+    oscillator.frequency.value = null;
+    oscillator.disconnect(gainNode);
+    $scope.tonePlaying = false;
+  }
 };
 
 
