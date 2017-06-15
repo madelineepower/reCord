@@ -57,6 +57,8 @@ app.controller('TimerViewCtrl', function($scope, $interval, $timeout, DataFactor
       $scope.elapsedSeconds = 0;
       $scope.timerSeconds = 0;
     }
+    $scope.elapsedSeconds = 0;
+    $scope.timerSeconds = 0;
   };
 
   $scope.makeNewObj = function() {
