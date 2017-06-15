@@ -2,6 +2,9 @@
 
 app.factory("DataFactory", function($q, $http, FBCreds) {
 
+var currentFirstName = "";
+var currentLastName = "";
+var currentUserName = "";
     //addExercise
     const addExercise = (newObj) => {
       return $q(function(resolve, reject){
@@ -47,6 +50,18 @@ app.factory("DataFactory", function($q, $http, FBCreds) {
       });
     };
 
+    const deleteAllExercises = (userId) => {
+      return $q((resolve, reject) => {
+        $http.delete(`${FBCreds.databaseURL}/exercises.json?orderBy="uid"&equalTo="${userId}"`)
+        .then((response) => {
+          resolve(response);
+        })
+        .catch((error) => {
+          reject(error);
+        });
+      });
+    };
+
 const addUser = function(newUser){
    return $q((resolve, reject)=>{
      console.log("adding new user to database");
@@ -60,11 +75,30 @@ const addUser = function(newUser){
    });
 };
 
+const getUser = function(userUID){
+  return $q((resolve, reject) => {
+    $http.get(`${FBCreds.databaseURL}/users.json?orderBy="uid"&equalTo="${userUID}"`)
+    .then((userName)=> {
+      for (let names in userName.data) {
+                currentFirstName = userName.data[names].firstName;
+                currentLastName = userName.data[names].lastName;
+                currentUserName = currentFirstName + " " + currentLastName;
+      }
+      resolve(currentUserName);
+    })
+    .catch((error)=>{
+      reject(error);
+    });
+  });
+};
+
     return {
     addExercise,
     getUserExerciseList,
     addUser,
-    deleteExercise
+    deleteExercise,
+    deleteAllExercises,
+    getUser
   };
 
 

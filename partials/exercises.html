@@ -1,5 +1,7 @@
 <div class="container">
   <h1>Exercises</h1>
+  <a ng-click="deleteAll()" class="btn">Delete All</a>
+  <a class="btn" data-target='exportModal' modal>Export</a>
     <div class="row" ng-repeat= "exercise in exercises | orderBy:'dateOfExercise':true">
           <div class="card-panel col s12">
             <div class="col s3"><h5>{{exercise.dateOfExercise | date : 'short'}}</h5></div>
@@ -23,5 +25,24 @@
             <a class="modal-action modal-close waves-effect waves-green btn-flat">no</a>
             </div>
           </div>
+    </div>
+
+    <!-- export modal content -->
+    <div id="exportModal" class="modal">
+          <h4>Export?</h4>
+          <div class="modal-content" id="export-this">
+            <h5>{{name}}</h5>
+            <div class="row" ng-repeat= "exercise in exercises | orderBy:'dateOfExercise':true">
+                  <div class="col s12">
+                    <div class="col s5"><p>{{exercise.dateOfExercise | date : 'short'}}</p></div>
+                    <div class="col s4"><p>{{exercise.milliseconds | date : 's'}} seconds</p></div>
+                    <div class="col s3"><p>{{exercise.note}}</p></div>
+                  </div>
+            </div>
+          </div>
+    <div class="modal-footer">
+      <a ng-click="makePDF()" class="modal-action modal-close waves-effect waves-green btn-flat">yes</a>
+      <a class="modal-action modal-close waves-effect waves-green btn-flat">no</a>
+      </div>
     </div>
 </div>
