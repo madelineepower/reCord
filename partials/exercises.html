@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Exercises</h1>
-  <a ng-click="deleteAll()" class="btn">Delete All</a>
+  <a data-target="deleteAllModal" class="btn" modal>Delete All</a>
   <a class="btn" data-target='exportModal' modal>Export</a>
     <div class="row" ng-repeat= "exercise in exercises | orderBy:'dateOfExercise':true">
           <div class="card-panel col s12">
@@ -45,6 +45,16 @@
     <div class="modal-footer">
       <a ng-click="makePDF()" class="modal-action modal-close waves-effect waves-green btn-flat">YES</a>
       <a class="modal-action modal-close waves-effect waves-green btn-flat">NO</a>
+      </div>
+    </div>
+
+    <div id="deleteAllModal" class="modal">
+          <div class="modal-content">
+                <h4>Delete All Exercises?</h4>
+          </div>
+    <div class="modal-footer">
+      <a ng-click="deleteAll()" class="modal-action modal-close waves-effect waves-green btn-flat">yes</a>
+      <a class="modal-action modal-close waves-effect waves-green btn-flat">no</a>
       </div>
     </div>
 </div>

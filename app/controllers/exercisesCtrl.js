@@ -1,16 +1,16 @@
 "use strict";
 
-app.controller('ExercisesCtrl', function($scope, DataFactory, AuthFactory) {
+app.controller('ExercisesCtrl', function($scope, DataFactory, AuthFactory, $q, $route) {
 
 var user = AuthFactory.getUser();
 $scope.name = "";
+$scope.exercises = [];
 
 $scope.getExerciseList = function() {
   console.log(user);
     DataFactory.getUserExerciseList(user)
     .then(function(data){
       $scope.exercises = data;
-      console.log("all exercises", $scope.exercises);
     });
   };
 
@@ -20,7 +20,6 @@ $scope.getCurrentUser = function() {
   user = AuthFactory.getUser();
   DataFactory.getUser(user)
   .then(function(name){
-    console.log("This is the full name", name);
     $scope.name = name;
   });
 };
@@ -35,15 +34,18 @@ $scope.deleteExercise = function (exerciseID) {
   };
 
 $scope.deleteAll = function () {
-  user = AuthFactory.getUser();
-  DataFactory.deleteAllExercises(user)
-  .then( () => {
-    $scope.getExerciseList();
-  });
+    var exerciseList = $scope.exercises;
+    exerciseList.forEach(function(currVal){
+          console.log(currVal);
+          DataFactory.deleteExercise(currVal.id)
+          .then(function(){
+            $scope.getExerciseList();
+          });
+    });
+
 };
 
 $scope.makePDF = function() {
-  console.log("click makePDF");
   html2canvas(document.getElementById('export-this'), {
             onrendered: function (canvas) {
                 var data = canvas.toDataURL();
@@ -59,3 +61,14 @@ $scope.makePDF = function() {
 };
 
 });
+
+// $scope.deleteBoard = function(){
+//         DataFactory.deleteBoard($scope.boardID)
+//         .then ( (data) => {
+//             $scope.pinsForBoard.forEach(function(currVal){
+//                 console.log(“currVal”, currVal);
+//                 DataFactory.deletePin(currVal.pinID);
+//             });
+//             $location.path(‘/profile’);
+//         });
+//     };
