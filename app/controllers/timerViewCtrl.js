@@ -46,21 +46,23 @@ app.controller('TimerViewCtrl', function($scope, $interval, $timeout, DataFactor
       $scope.newExerciseObject.milliseconds = $scope.totalElapsedTime;
       $scope.newExerciseObject.dateOfExercise = $scope.startTime;
       $scope.newExerciseObject.note = $scope.selected.note.note;
-      console.log($scope.newExerciseObject);
       return $scope.newExerciseObject;
   };
 
   $scope.reset = function() {
-    $scope.elapsedSeconds = 0;
-    $scope.timerSeconds = 0;
+    if (timerPromise) {
+      $scope.timerStarted = false;
+      $interval.cancel(timerPromise);
+      timerPromise = undefined;
+      $scope.elapsedSeconds = 0;
+      $scope.timerSeconds = 0;
+    }
   };
 
   $scope.makeNewObj = function() {
       var newObj = $scope.getElapsedTime();
-      console.log('Saved Object', newObj);
       DataFactory.addExercise(newObj)
       .then(function(newObj){
-        console.log("this was added to firebase", newObj);
         $scope.reset();
       });
   };
