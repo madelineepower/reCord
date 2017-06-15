@@ -16,12 +16,14 @@ app.controller('TimerViewCtrl', function($scope, $interval, $timeout, DataFactor
     };
     $scope.timerSeconds = 0;
     $scope.selected = SelectedNoteData;
+    $scope.timerStarted = false;
 
   $scope.start = function() {
     if (!timerPromise) {
       $scope.startTime = new Date();
       console.log("startTime", $scope.startTime);
       timerPromise = $interval(function() {
+        $scope.timerStarted = true;
         var now = new Date();
         $scope.elapsedSeconds = now.getTime() - $scope.startTime.getTime();
         $scope.timerSeconds = ($scope.elapsedSeconds/1000);
@@ -31,6 +33,7 @@ app.controller('TimerViewCtrl', function($scope, $interval, $timeout, DataFactor
 
   $scope.stop = function() {
     if (timerPromise) {
+      $scope.timerStarted = false;
       $scope.getElapsedTime();
       $interval.cancel(timerPromise);
       timerPromise = undefined;

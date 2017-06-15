@@ -36,8 +36,8 @@
           </round-progress>
       </div>
       <div>
-        <a ng-click="start()" class="btn">start</a>
-        <a ng-click="stop();stopTone()" class="btn" data-target='saveModal' modal>stop</a>
+        <a ng-show="!timerStarted" ng-click="start()" class="btn">start</a>
+        <a ng-show="timerStarted" ng-click="stop();stopTone()" class="btn" data-target='saveModal' modal>stop</a>
         <a ng-click="reset()" class="btn">reset</a>
       </div>
   </div>
