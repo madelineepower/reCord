@@ -1,7 +1,20 @@
+$primary-color: #1c2937;
+$secondary-color: #303f4f;
+$tertiary-color: #1de9b6;
+$font: #E6E6E6;
+
+a:hover {
+  color: $tertiary-color;
+}
+
+i:hover {
+  color: $tertiary-color;
+}
 .progress-wrapper{
     position: relative;
     margin: 30px auto;
     font-size: 21px;
+    font-weight: lighter;
 }
 .progress-circle{
     position: absolute;
@@ -12,11 +25,168 @@
 }
 
 .secondsDiv {
-  margin-top: 100px;
+  margin-top: 80px;
 }
 
 .box {
   border: 1px solid black;
   padding: 2%;
   margin-top: 1%;
+}
+
+.NavBar {
+  background-color: $primary-color;
+  color: $font;
+  text-transform: uppercase;
+  height: 100px;
+  border: none;
+  box-shadow: none;
+}
+
+.navLink {
+  background-color: $secondary-color;
+  margin-top: 15px;
+  // height: px;
+}
+
+body {
+  background-color: $primary-color;
+  color: $font;
+}
+
+.loginView {
+  input[type=email]:focus:not([readonly]) {
+  border-bottom: .1px solid $tertiary-color;
+  box-shadow: 0 .4px 0 0 $secondary-color;
+  }
+
+  input[type=password]:focus:not([readonly]) {
+    border-bottom: .1px solid $tertiary-color;
+    box-shadow: 0 .4px 0 0 $secondary-color;
+  }
+
+  .loginBtn {
+    background-color: $secondary-color;
+    :hover {
+      background-color: $primary-color;
+    }
+  }
+
+  .registerBtn {
+    background-color: $tertiary-color;
+  }
+
+  p {
+    margin-top: 25px;
+  }
+}
+
+.timerView {
+  margin-bottom: 20px;
+  .btn-floating {
+    background-color: $primary-color !important;
+    border: .2px solid $font;
+    font-weight: lighter;
+    font-size: .75em;
+  }
+  .input-field {
+    margin-top: 0;
+  }
+  .playBtn {
+    background-color: $secondary-color;
+    height: 42px;
+    i {
+      padding-top: 2px;
+    }
+  }
+  .selectBox {
+    text-align: right;
+  }
+  select {
+    background-color: $secondary-color !important;
+    border: none;
+  }
+  .myModal {
+    background-color: $secondary-color;
+    .modal-footer {
+      background-color: $secondary-color;
+      a:hover {
+        color: $tertiary-color;
+      }
+      .btn-flat {
+        color: $font;
+      }
+    }
+  }
+}
+
+.exerciseView {
+  .card-panel {
+    background-color: $secondary-color;
+    padding: 5px 0 5px 0;
+  }
+  .btn-floating {
+    background-color: $secondary-color !important;
+    border: .2px solid $font;
+    font-weight: lighter;
+    font-size: 1.5em;
+    margin-top: 5px;
+  }
+  h3 {
+    margin: 0;
+  }
+  .menuBtn {
+    background-color: $secondary-color !important;
+  }
+
+  .menuDrop {
+    color: $tertiary-color;
+  }
+}
+
+.deleteModal {
+  background-color: $secondary-color;
+  .modal-footer {
+    background-color: $secondary-color;
+    a:hover {
+      color: $tertiary-color;
+    }
+    .btn-flat {
+      color: $font;
+    }
+  }
+}
+
+.exportModal {
+  color: black;
+}
+
+.registerModal {
+  background-color: $secondary-color;
+  input[type=email]:focus:not([readonly]) {
+  border-bottom: .1px solid $tertiary-color;
+  box-shadow: 0 .4px 0 0 $secondary-color;
+  }
+
+  input[type=password]:focus:not([readonly]) {
+    border-bottom: .1px solid $tertiary-color;
+    box-shadow: 0 .4px 0 0 $secondary-color;
+  }
+  input[type=text]:focus:not([readonly]) {
+    border-bottom: .1px solid $tertiary-color;
+    box-shadow: 0 .4px 0 0 $secondary-color;
+  }
+
+  .registerBtn {
+    background-color: $tertiary-color;
+  }
+  .modal-footer {
+    background-color: $secondary-color;
+    a:hover {
+      color: $tertiary-color;
+    }
+    .btn-flat {
+      color: $font;
+    }
+  }
 }

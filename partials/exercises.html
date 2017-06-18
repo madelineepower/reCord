@@ -1,20 +1,32 @@
-<div class="container">
-  <h1>Exercises</h1>
-  <a data-target="deleteAllModal" class="btn" modal>Delete All</a>
-  <a class="btn" data-target='exportModal' modal>Export</a>
+<div class="container exerciseView">
+<div class="row">
+  <h3 class="col s11">Exercises</h3>
+  <a class='btn menuBtn col s1' href='javascript:void(0);' data-activates='exerciseDropdown' dropdown data-beloworigin="true">
+    <i class="large material-icons">list</i>
+  </a>
+  <div id="exerciseDropdown" class="dropdown-content">
+    <ul>
+      <li><a class="menuDrop" data-target="deleteAllModal" modal>Delete All</a></li>
+      <li><a class="menuDrop" data-target='exportModal' modal>Export</a></li>
+    </ul>
+  </div>
+
+</div>
     <div class="row" ng-repeat= "exercise in exercises | orderBy:'dateOfExercise':true">
           <div class="card-panel col s12">
-            <div class="col s3"><h5>{{exercise.dateOfExercise | date : 'short'}}</h5></div>
+            <div class="col s5"><h5>{{exercise.dateOfExercise | date : 'short'}}</h5></div>
             <div class="col s3"><h5>{{exercise.milliseconds | date : 's'}} seconds</h5></div>
-            <div class="col s3"><h5>{{exercise.note}}</h5></div>
-            <div class="col s3">
-              <a class="btn" data-target='delete--{{exercise.id}}' modal>Delete</a>
+            <div class="col s2"><h5>{{exercise.note}}</h5></div>
+            <div class="col s2">
+              <a class="btn-floating btn right" data-target='delete--{{exercise.id}}' modal>
+                <i class="material-icons">delete</i>
+              </a>
             </div>
           </div>
 
 
     <!-- delete modal content -->
-          <div id="delete--{{exercise.id}}" class="modal">
+          <div id="delete--{{exercise.id}}" class="modal deleteModal">
                 <div class="modal-content">
                       <h4>Delete this exercise?</h4>
                       <h5>{{exercise.dateOfExercise | date : 'short'}}</h5>
@@ -28,7 +40,7 @@
     </div>
 
     <!-- export modal content -->
-    <div id="exportModal" class="modal">
+    <div id="exportModal" class="modal exportModal">
           <div class="modal-content">
             <h4>Export?</h4>
             <div class= "box" id="export-this">
@@ -48,7 +60,7 @@
       </div>
     </div>
 
-    <div id="deleteAllModal" class="modal">
+    <div id="deleteAllModal" class="modal deleteModal">
           <div class="modal-content">
                 <h4>Delete All Exercises?</h4>
           </div>

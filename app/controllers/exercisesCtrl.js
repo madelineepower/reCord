@@ -42,7 +42,6 @@ $scope.deleteAll = function () {
             $scope.getExerciseList();
           });
     });
-
 };
 
 $scope.makePDF = function() {

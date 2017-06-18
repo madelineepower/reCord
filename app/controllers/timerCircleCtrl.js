@@ -8,13 +8,13 @@ app.controller('TimeCircleCtrl', ['$scope', '$interval', '$timeout', '$window', 
     $scope.timerCurrent =   0;
     $scope.uploadCurrent =  0;
     $scope.stroke =         15;
-    $scope.radius =         125;
+    $scope.radius =         105;
     $scope.isSemi =         false;
-    $scope.rounded =        false;
+    $scope.rounded =        true;
     $scope.responsive =     false;
     $scope.clockwise =      true;
-    $scope.currentColor =   '#45ccce';
-    $scope.bgColor =        '#b5b2b2';
+    $scope.currentColor =   '#1de9b6';
+    $scope.bgColor =        '#303f4f';
     $scope.duration =       800;
     $scope.currentAnimation = 'easeOutCubic';
     $scope.animationDelay = 0;

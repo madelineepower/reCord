@@ -1,16 +1,21 @@
-<div ng-controller="SoundCtrl">
+<div ng-controller="SoundCtrl" class="timerView">
 <div class="container center">
-  <div id="noteDiv">
-    <p>NOTE</p>
-    <div input-field>
-      <select class="browser-default" name="selectedNote" ng-model="selected.note" ng-options="note.note for note in notesArray" material-select watch>
-      <option value="">Select a note</option>
+  <div id="noteDiv" class="row center">
+    <p class="col s12">NOTE</p>
+      <div class="col s4"></div>
+    <div input-field class="selectBox col s2">
+      <select class="browser-default right" name="selectedNote" ng-model="selected.note" ng-options="note.note for note in notesArray" material-select watch>
+      <option value="">Select</option>
       <option></option>
       </select>
     </div>
-    <div>
-      <a ng-show="!tonePlaying" ng-click="playTone()" class="btn">Play</a>
-      <a ng-show="tonePlaying" ng-click="stopTone()" class="btn">Mute</a>
+    <div class="soundBtns col s6">
+      <a class="playBtn btn left" ng-show="!tonePlaying" ng-click="playTone()">
+        <i class="large material-icons">play_arrow</i>
+      </a>
+      <a ng-show="tonePlaying" ng-click="stopTone()" class="playBtn btn left">
+        <i class="large material-icons">pause</i>
+      </a>
     </div>
   </div>
 
@@ -25,9 +30,9 @@
           <round-progress
                     max="60"
                     current= "timerSeconds"
-                    color="#45ccce"
+                    color="{{currentColor}}"
+                    bgcolor="{{bgColor}}"
                     radius="{{ radius*1.5 }}"
-                    semi="isSemi"
                     rounded="rounded"
                     clockwise="clockwise"
                     responsive="responsive"
@@ -36,15 +41,15 @@
           </round-progress>
       </div>
       <div>
-        <a ng-show="!timerStarted" ng-click="start()" class="btn">start</a>
-        <a ng-show="timerStarted" ng-click="stop();stopTone()" class="btn" data-target='saveModal' modal>stop</a>
-        <a ng-click="reset()" class="btn">reset</a>
+        <a ng-show="!timerStarted" ng-click="start()" class="btn-floating btn-large">start</a>
+        <a ng-show="timerStarted" ng-click="stop();stopTone()" class="btn-floating btn-large" data-target='saveModal' modal>stop</a>
+        <a ng-click="reset()" class="btn-floating btn-large">reset</a>
       </div>
   </div>
 </div>
 
 <!-- Save Modal Content -->
-    <div id="saveModal" class="modal">
+    <div id="saveModal" class="modal myModal">
           <div class="modal-content">
                 <h4>Save?</h4>
                 <h5>Date: {{startTime | date : 'shortDate'}}</h5>
@@ -52,8 +57,8 @@
                 <h5>{{selected.note.note}}</h5>
           </div>
     <div class="modal-footer">
-      <a ng-click="makeNewObj()" class="modal-action modal-close waves-effect waves-green btn-flat">yes</a>
-      <a class="modal-action modal-close waves-effect waves-green btn-flat">no</a>
+      <a ng-click="makeNewObj()" class="modal-action modal-close btn-flat">yes</a>
+      <a class="modal-action modal-close btn-flat">no</a>
       </div>
     </div>
 </div>

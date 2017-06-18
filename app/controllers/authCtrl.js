@@ -3,6 +3,7 @@
 //login, logout, register
 
 app.controller("AuthCtrl", function($scope, $window, $location, AuthFactory, DataFactory){
+
     $scope.auth = {
       email: "",
       password: "",

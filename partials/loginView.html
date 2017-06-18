@@ -1,26 +1,29 @@
-<div class="container center">
+<div class="container center loginView">
   <h2>reCord</h2>
   <div input-field>
       <input type="email" placeholder="Email" ng-model="auth.email">
       <input type="password" placeholder="Password" ng-model="auth.password">
   </div>
   <div>
-    <a class="btn" ng-click="login()">Login</a>
-    <a class="btn" data-target='newUser' modal>Create Account</a>
+    <a class="btn loginBtn" ng-click="login()">Login</a><br />
+    <p>
+      OR
+    </p><br />
+    <a class="btn registerBtn" data-target='newUser' modal>Create Account</a>
   </div>
 </div>
 
 <!-- NEW USER MODAL -->
-<div id="newUser" class="modal">
-    <div class="modal-content">
+<div id="newUser" class="modal registerModal">
+    <div class="modal-content center">
       <h4>Create New Account</h4>
         <input type="text" autofocus="true" placeholder="First Name" ng-model="auth.firstName">
         <input type="text" autofocus="true" placeholder="Last Name" ng-model="auth.lastName">
         <input type="email" autofocus="true" placeholder="Email" ng-model="auth.email">
         <input type="password" autofocus="true" placeholder="Password" ng-model="auth.password">
-        <button ng-click="registerUser()" class="btn waves-effect waves-light">Register</button>
+        <a ng-click="registerUser()" class="btn registerBtn">Create Account</a>
     </div>
     <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        <a class=" modal-action modal-close btn-flat">Cancel</a>
     </div>
 </div>
