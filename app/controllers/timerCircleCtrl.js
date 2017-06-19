@@ -7,7 +7,7 @@ app.controller('TimeCircleCtrl', ['$scope', '$interval', '$timeout', '$window', 
     $scope.offset =         0;
     $scope.timerCurrent =   0;
     $scope.uploadCurrent =  0;
-    $scope.stroke =         15;
+    $scope.stroke =         5;
     $scope.radius =         105;
     $scope.isSemi =         false;
     $scope.rounded =        true;

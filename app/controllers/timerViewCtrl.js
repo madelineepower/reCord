@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('TimerViewCtrl', function($scope, $interval, $timeout, DataFactory, AuthFactory, SelectedNoteData) {
+app.controller('TimerViewCtrl', function($scope, $interval, $timeout, DataFactory, AuthFactory, SelectedNoteData, $window) {
     $scope.format = '';
     $scope.startTime = "";
     $scope.new = "";
@@ -17,6 +17,7 @@ app.controller('TimerViewCtrl', function($scope, $interval, $timeout, DataFactor
     $scope.timerSeconds = 0;
     $scope.selected = SelectedNoteData;
     $scope.timerStarted = false;
+
 
   $scope.start = function() {
     if (!timerPromise) {
