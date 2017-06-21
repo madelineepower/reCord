@@ -1,6 +1,6 @@
 <div class="container exerciseView">
 <div class="row">
-  <h3 class="col s11">Exercises</h3>
+  <h4 class="col s11">MY EXERCISES</h4>
   <a class='btn menuBtn col s1' href='javascript:void(0);' data-activates='exerciseDropdown' dropdown data-beloworigin="true">
     <i class="large material-icons">list</i>
   </a>
@@ -32,6 +32,7 @@
                       <h4>Delete this exercise?</h4>
                       <h5>{{exercise.dateOfExercise | date : 'short'}}</h5>
                       <h5>{{exercise.milliseconds | date : 's'}} seconds</h5>
+                      <h5>{{exercise.vowel}}</h5>
                 </div>
           <div class="modal-footer">
             <a ng-click="deleteExercise(exercise.id)" class="modal-action modal-close waves-effect waves-green btn-flat">yes</a>
@@ -49,8 +50,9 @@
               <div class="row" ng-repeat= "exercise in exercises | orderBy:'dateOfExercise':true">
                 <div class="col s12">
                   <div class="col s5"><p>{{exercise.dateOfExercise | date : 'short'}}</p></div>
-                  <div class="col s4"><p>{{exercise.milliseconds | date : 's'}} seconds</p></div>
-                  <div class="col s3"><p>{{exercise.note}}</p></div>
+                  <div class="col s3"><p>{{exercise.milliseconds | date : 's'}} seconds</p></div>
+                  <div class="col s2"><p>{{exercise.note}}</p></div>
+                  <div class="col s2"><p>{{exercise.vowel}}</p></div>
                 </div>
               </div>
             </div>
