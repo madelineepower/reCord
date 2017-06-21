@@ -82,6 +82,9 @@ body {
 }
 
 .timerView {
+  #noteDiv {
+    margin-top: 100px;
+  }
   margin-bottom: 20px;
   .btn-floating {
     background-color: $primary-color !important;
@@ -105,6 +108,7 @@ body {
   select {
     background-color: $secondary-color !important;
     border: none;
+    margin-bottom: 20px;
   }
   .myModal {
     background-color: $secondary-color;

@@ -14,9 +14,10 @@
 </div>
     <div class="row" ng-repeat= "exercise in exercises | orderBy:'dateOfExercise':true">
           <div class="card-panel col s12">
-            <div class="col s5"><h5>{{exercise.dateOfExercise | date : 'short'}}</h5></div>
+            <div class="col s4"><h5>{{exercise.dateOfExercise | date : 'short'}}</h5></div>
             <div class="col s3"><h5>{{exercise.milliseconds | date : 's'}} seconds</h5></div>
             <div class="col s2"><h5>{{exercise.note}}</h5></div>
+            <div class="col s1"><h5>{{exercise.vowel}}</h5></div>
             <div class="col s2">
               <a class="btn-floating btn right" data-target='delete--{{exercise.id}}' modal>
                 <i class="material-icons">delete</i>

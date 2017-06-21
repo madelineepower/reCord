@@ -1,15 +1,25 @@
 <div ng-controller="SoundCtrl" class="timerView">
-<div class="container center">
-  <div id="noteDiv" class="row center">
-    <p class="col s12">NOTE</p>
-      <div class="col s4"></div>
-    <div input-field class="selectBox col s2">
+<div class="container center row">
+  <div id="noteDiv" class="col s6 left">
+    <p>SELECT A VOWEL</p>
+    <div input-field class="selectBox col s12">
+      <select class="browser-default right" name="selectedVowel" material-select watch ng-model="UserVowel.vowel">
+        <option value="">choose vowel</option>
+        <option value="[e]">[e] "ay"</option>
+        <option value="[i]">[i] "ee"</option>
+        <option value="[o]">[o] "oh"</option>
+        <option value="[u]">[u] "oo"</option>
+        <option value="[a]">[a] "ah"</option>
+        <option value="[oʊl]">[oʊl] "ol"</option>
+      </select>
+    </div><br />
+    <p>SELECT A PITCH</p>
+    <div input-field class="selectBox col s8">
       <select class="browser-default right" name="selectedNote" ng-model="selected.note" ng-options="note.note for note in notesArray" material-select watch>
-      <option value="">Select</option>
-      <option></option>
+        <option value="">choose pitch</option>
       </select>
     </div>
-    <div class="soundBtns col s6">
+    <div class="soundBtns col s4">
       <a class="playBtn btn left" ng-show="!tonePlaying" ng-click="playTone()">
         <i class="large material-icons">play_arrow</i>
       </a>
@@ -19,7 +29,7 @@
     </div>
   </div>
 
-  <div id="timerCircle" ng-controller="TimeCircleCtrl">
+  <div id="timerCircle"  class="col s6" ng-controller="TimeCircleCtrl">
     <div class="progress-wrapper">
         <div class="progress-circle ng-cloak" ng-style="getStyle()">
           <div class="secondsDiv">
@@ -55,6 +65,7 @@
                 <h5>Date: {{startTime | date : 'shortDate'}}</h5>
                 <h5>Total Time: {{totalElapsedTime | date: 's'}} seconds</h5>
                 <h5>{{selected.note.note}}</h5>
+                <h5>{{UserVowel.vowel}}</h5>
           </div>
     <div class="modal-footer">
       <a ng-click="makeNewObj()" class="modal-action modal-close btn-flat">yes</a>
