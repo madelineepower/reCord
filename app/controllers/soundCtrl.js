@@ -27,6 +27,7 @@ var createAudioContext = function() {
   }
 };
 createAudioContext();
+
   //create the oscillator
   var oscillator = audioContext.createOscillator();
   var gainNode = audioContext.createGain();
