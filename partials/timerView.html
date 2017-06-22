@@ -1,10 +1,11 @@
 <div ng-controller="SoundCtrl" class="timerView">
 <div class="container center row">
   <div id="noteDiv" class="col s6 left">
+    <h5>Use the timer to track your progress</h5>
     <p>SELECT A VOWEL</p>
     <div input-field class="selectBox col s12">
       <select class="browser-default right" name="selectedVowel" material-select watch ng-model="UserVowel.vowel">
-        <option value="">choose vowel</option>
+        <option value="">- choose vowel -</option>
         <option value="[e]">[e] "ay"</option>
         <option value="[i]">[i] "ee"</option>
         <option value="[o]">[o] "oh"</option>
@@ -14,12 +15,12 @@
       </select>
     </div><br />
     <p>SELECT A PITCH</p>
-    <div input-field class="selectBox col s8">
+    <div input-field class="selectBox col s9">
       <select class="browser-default right" name="selectedNote" ng-model="selected.note" ng-options="note.note for note in notesArray" material-select watch>
-        <option value="">choose pitch</option>
+        <option value="">- choose pitch -</option>
       </select>
     </div>
-    <div class="soundBtns col s4">
+    <div class="soundBtns col s3">
       <a class="playBtn btn left" ng-show="!tonePlaying" ng-click="playTone()">
         <i class="large material-icons">play_arrow</i>
       </a>
@@ -40,7 +41,7 @@
           <round-progress
                     max="60"
                     current= "timerSeconds"
-                    color="{{currentColor}}"
+                    color="url(#my-gradient-id)"
                     bgcolor="{{bgColor}}"
                     radius="{{ radius*1.5 }}"
                     rounded="rounded"
@@ -57,15 +58,21 @@
       </div>
   </div>
 </div>
+<svg>
+  <linearGradient id="my-gradient-id" x1="0" x2="0" y1="0" y2="1">
+    <stop offset="10%"  stop-color="#25ebff"/>
+    <stop offset="90%" stop-color="#1de9b6"/>
+  </linearGradient>
+</svg>
 
 <!-- Save Modal Content -->
     <div id="saveModal" class="modal myModal">
           <div class="modal-content">
                 <h4>Save?</h4>
-                <h5>Date: {{startTime | date : 'shortDate'}}</h5>
-                <h5>Total Time: {{totalElapsedTime | date: 's'}} seconds</h5>
-                <h5>{{selected.note.note}}</h5>
-                <h5>{{UserVowel.vowel}}</h5>
+                <h6>Date: {{startTime | date : 'shortDate'}}</h6>
+                <h6>Total Time: {{totalElapsedTime | date: 's'}} seconds</h6>
+                <h6>{{selected.note.note}}</h6>
+                <h6>{{UserVowel.vowel}}</h6>
           </div>
     <div class="modal-footer">
       <a ng-click="makeNewObj()" class="modal-action modal-close btn-flat">yes</a>

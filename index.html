@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logo-3.png" type="image/png"/>
     <link rel="stylesheet" href="./lib/node_modules/materialize-css/dist/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
@@ -10,12 +11,15 @@
   </head>
   <body ng-app="reCord">
     <div ng-include="'partials/NavBar.html'"></div>
-    <div ng-view>
-
-    </div>
-
-
-
+    <div ng-view></div>
+    <main></main>
+    <footer class="page-footer">
+      <div class="footer-copyright">
+        <div class="container center">
+          <span>&copy; 2017 Madeline Power</span>
+        </div>
+      </div>
+    </footer>
   <!-- JQUERY   -->
   <script type="text/javascript" src="./lib/node_modules/jquery/dist/jquery.min.js"></script>
   <!-- ANGULAR  -->

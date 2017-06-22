@@ -25,7 +25,7 @@ i:hover {
 }
 
 .secondsDiv {
-  margin-top: 80px;
+  margin-top: 90px;
 }
 
 .box {
@@ -34,14 +34,22 @@ i:hover {
   margin-top: 1%;
 }
 
+nav {
+  background-color: $secondary-color !important;
+  height: 85px !important;
+}
+.nav-wrapper {
+}
 .NavBar {
-  background-color: $secondary-color;
   color: $font;
   border: none;
   box-shadow: none;
+  padding-top: 10px;
   .logo {
     font-size: 2em;
-    padding-left: 10px;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid $font;
   }
 }
 
@@ -50,12 +58,21 @@ i:hover {
   // height: px;
 }
 
+#timerCircle {
+  border-left: 1px solid $secondary-color;
+  padding-top: 20px;
+}
 body {
   background-color: $primary-color;
+  margin: 0 auto;
   color: $font;
 }
 
 .loginView {
+  span {
+    font-weight: lighter;
+    font-size: 1.5em;
+  }
   input[type=email]:focus:not([readonly]) {
   border-bottom: .1px solid $tertiary-color;
   box-shadow: 0 .4px 0 0 $secondary-color;
@@ -85,8 +102,21 @@ body {
 .timerView {
   #noteDiv {
     margin-top: 100px;
+    padding-right: 20px;
+    p {
+      font-weight: 200;
+      font-size: .85em;
+    }
   }
-  margin-bottom: 20px;
+  h5 {
+    font-weight: lighter;
+    margin-bottom: 55px;
+  }
+  h6 {
+    font-weight: lighter;
+    font-size: 1.2em;
+  }
+  margin-top: 4%;
   .btn-floating {
     background-color: $primary-color !important;
     border: .2px solid $font;
@@ -199,4 +229,20 @@ body {
       color: $font;
     }
   }
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.page-footer {
+  background-color: $secondary-color;
+  color: $font;
+  padding-top: 0 !important;
 }
