@@ -60,14 +60,3 @@ $scope.makePDF = function() {
 };
 
 });
-
-// $scope.deleteBoard = function(){
-//         DataFactory.deleteBoard($scope.boardID)
-//         .then ( (data) => {
-//             $scope.pinsForBoard.forEach(function(currVal){
-//                 console.log(“currVal”, currVal);
-//                 DataFactory.deletePin(currVal.pinID);
-//             });
-//             $location.path(‘/profile’);
-//         });
-//     };

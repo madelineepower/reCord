@@ -49,17 +49,18 @@
               <h5>{{name}}</h5>
               <div class="row" ng-repeat= "exercise in exercises | orderBy:'dateOfExercise':true">
                 <div class="col s12">
-                  <div class="col s5"><p>{{exercise.dateOfExercise | date : 'short'}}</p></div>
-                  <div class="col s3"><p>{{exercise.milliseconds | date : 's'}} seconds</p></div>
-                  <div class="col s2"><p>{{exercise.note}}</p></div>
-                  <div class="col s2"><p>{{exercise.vowel}}</p></div>
+                  <p class="col s5">{{exercise.dateOfExercise | date : 'short'}}</p>
+                  <p class="col s3">{{exercise.milliseconds | date : 's'}} seconds</p>
+                  <p class="col s2">{{exercise.note}}</p>
+                  <p class="col s2">{{exercise.vowel}}</p>
+                  <hr />
                 </div>
               </div>
             </div>
           </div>
-    <div class="modal-footer">
-      <a ng-click="makePDF()" class="modal-action modal-close waves-effect waves-green btn-flat">YES</a>
-      <a class="modal-action modal-close waves-effect waves-green btn-flat">NO</a>
+      <div class="modal-footer">
+        <a ng-click="makePDF()" class="modal-action modal-close waves-effect waves-green btn-flat">YES</a>
+        <a class="modal-action modal-close waves-effect waves-green btn-flat">NO</a>
       </div>
     </div>
 
