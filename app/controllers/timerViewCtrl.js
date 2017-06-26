@@ -74,15 +74,3 @@ app.controller('TimerViewCtrl', function($scope, $interval, $timeout, DataFactor
   };
 
 });
-
-
-
-
-//makeNewObj function
-// grabs current date and totalElapsedTime
-// creates new object to push to firebase
-// calls data factory
-
-//saveExercise (closes modal)
-
-//resetTimer (closes modal and resets timer)
