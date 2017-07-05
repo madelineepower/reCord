@@ -1,39 +1,35 @@
 "use strict";
 
-app.controller('TimeCircleCtrl', ['$scope', '$interval', '$timeout', '$window', 'roundProgressService', function($scope, $interval, $timeout, $window, roundProgressService){
+app.controller('TimeCircleCtrl', ['$scope', '$interval', '$timeout', '$window', 'roundProgressService', function($scope, $interval, $timeout, $window, roundProgressService) {
 
-    $scope.current =        0;
-    $scope.max =            60;
-    $scope.offset =         0;
-    $scope.timerCurrent =   0;
-    $scope.uploadCurrent =  0;
-    $scope.stroke =         6;
-    $scope.radius =         125;
-    $scope.isSemi =         false;
-    $scope.rounded =        true;
-    $scope.responsive =     false;
-    $scope.clockwise =      true;
-    $scope.currentColor =   '#1de9b6';
-    $scope.bgColor =        '#303f4f';
-    $scope.duration =       800;
+//round progress attributes
+    $scope.current = 0;
+    $scope.max = 60;
+    $scope.offset = 0;
+    $scope.timerCurrent = 0;
+    $scope.uploadCurrent = 0;
+    $scope.stroke = 6;
+    $scope.radius = 125;
+    $scope.isSemi = false;
+    $scope.rounded = true;
+    $scope.responsive = false;
+    $scope.clockwise = true;
+    $scope.currentColor = '#1de9b6';
+    $scope.bgColor = '#303f4f';
+    $scope.duration = 800;
     $scope.currentAnimation = 'easeOutCubic';
     $scope.animationDelay = 0;
 
-    $scope.increment = function(amount){
+    $scope.increment = function(amount) {
         $scope.current += (amount || 1);
     };
 
-    $scope.decrement = function(amount){
+    $scope.decrement = function(amount) {
         $scope.current -= (amount || 1);
     };
 
-    $scope.animations = [];
-
-    angular.forEach(roundProgressService.animations, function(value, key){
-        $scope.animations.push(key);
-    });
-
-    $scope.getStyle = function(){
+//apply style to the round progress
+    $scope.getStyle = function() {
         var transform = ($scope.isSemi ? '' : 'translateY(-50%) ') + 'translateX(-50%)';
 
         return {
@@ -43,7 +39,7 @@ app.controller('TimeCircleCtrl', ['$scope', '$interval', '$timeout', '$window', 
             'transform': transform,
             '-moz-transform': transform,
             '-webkit-transform': transform,
-            'font-size': $scope.radius/3.5 + 'px'
+            'font-size': $scope.radius / 3.5 + 'px'
         };
     };
 

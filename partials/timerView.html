@@ -52,9 +52,9 @@
           </round-progress>
       </div>
       <div>
-        <a ng-show="!timerStarted" ng-click="start()" class="btn-floating btn-large">start</a>
-        <a ng-show="timerStarted" ng-click="stop();stopTone()" class="btn-floating btn-large" data-target='saveModal' modal>stop</a>
-        <a ng-click="reset()" class="btn-floating btn-large">reset</a>
+        <a ng-show="!timerStarted" ng-click="start()" class="btn-floating btn-large">Start</a>
+        <a ng-show="timerStarted" ng-click="stop();stopTone()" class="btn-floating btn-large" data-target='saveModal' modal>Stop</a>
+        <a ng-click="reset()" class="btn-floating btn-large">Reset</a>
       </div>
   </div>
 </div>
@@ -70,7 +70,7 @@
           <div class="modal-content">
                 <h4>Save?</h4>
                 <h6>Date: {{startTime | date : 'shortDate'}}</h6>
-                <h6>Total Time: {{totalElapsedTime | date: 's'}} seconds</h6>
+                <h6>Total Time: {{totalElapsedTime | date: 's'}} seconds</h>
                 <h6>{{selected.note.note}}</h6>
                 <h6>{{UserVowel.vowel}}</h6>
           </div>
