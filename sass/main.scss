@@ -11,10 +11,11 @@ i:hover {
   color: $tertiary-color;
 }
 .progress-wrapper{
-    position: relative;
+    position: absolute;
     margin: 30px auto;
-    font-size: 21px;
     font-weight: lighter;
+    padding-left: 15px;
+    border-left: 1px solid $secondary-color;
 }
 .progress-circle{
     position: absolute;
@@ -25,7 +26,9 @@ i:hover {
 }
 
 .secondsDiv {
-  margin-top: 90px;
+  text-align: center;
+  margin-top: 100px;
+  padding-left: 15px;
 }
 
 .box {
@@ -33,6 +36,9 @@ i:hover {
   margin-top: 1%;
 }
 
+.timerBtns {
+  margin-top: 10px;
+}
 nav {
   background-color: $secondary-color !important;
   height: 85px !important;
@@ -58,7 +64,6 @@ nav {
 }
 
 #timerCircle {
-  border-left: 1px solid $secondary-color;
   padding-top: 20px;
 }
 body {
@@ -159,10 +164,15 @@ body {
   h5 {
     font-weight: lighter;
   }
+  .row {
+    margin-bottom: 1px;
+  }
   .card-panel {
     background-color: $secondary-color;
-    padding: 5px 0 5px 0;
+    padding: 3px 0 3px 0;
     border-radius: 7px;
+    margin-bottom: 5px;
+    margin-top: 5px;
   }
   .btn-floating {
     background-color: $secondary-color !important;
@@ -170,6 +180,9 @@ body {
     font-weight: lighter;
     font-size: 1.5em;
     margin-top: 5px;
+  }
+  .exerciseHeader {
+    margin-bottom: 10px;
   }
   h4 {
     margin: 0;
@@ -246,8 +259,18 @@ main {
 }
 
 .dltAllBtn {
-  margin-bottom: 10px;
+  margin: 7px 0 10px 0;
   a:hover {
     color: $font !important;
+  }
+}
+
+.side-nav {
+  background-color: $secondary-color;
+  li>a {
+    color: $font;
+  }
+  li>a>i.material-icons {
+    color: $font;
   }
 }

@@ -50,11 +50,11 @@
                     stroke="{{ stroke*1.5 }}"
                     animation="{{ currentAnimation }}">
           </round-progress>
-      </div>
-      <div>
-        <a ng-show="!timerStarted" ng-click="start()" class="btn-floating btn-large">Start</a>
-        <a ng-show="timerStarted" ng-click="stop();stopTone()" class="btn-floating btn-large" data-target='saveModal' modal>Stop</a>
-        <a ng-click="reset()" class="btn-floating btn-large">Reset</a>
+          <div class="timerBtns">
+            <a ng-show="!timerStarted" ng-click="start()" class="btn-floating btn-large">Start</a>
+            <a ng-show="timerStarted" ng-click="stop();stopTone()" class="btn-floating btn-large" data-target='saveModal' modal>Stop</a>
+            <a ng-click="reset()" class="btn-floating btn-large">Reset</a>
+          </div>
       </div>
   </div>
 </div>
