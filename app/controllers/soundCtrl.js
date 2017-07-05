@@ -22,7 +22,6 @@ app.controller('SoundCtrl', function($scope, SelectedNoteData, $route) {
     var createAudioContext = function() {
         if (isAudioContextSupported()) {
             audioContext = new window.AudioContext();
-            console.log("created audio context");
         }
     };
     createAudioContext();
@@ -39,7 +38,6 @@ app.controller('SoundCtrl', function($scope, SelectedNoteData, $route) {
         $scope.notesArray = [];
         $.getJSON('data/notes.json', function(data) {
             $scope.notesArray = data.notes;
-            console.log($scope.notesArray);
         });
     };
     getNotes();
@@ -50,7 +48,6 @@ app.controller('SoundCtrl', function($scope, SelectedNoteData, $route) {
     let setFrequency = function() {
         var newNote = $scope.selected.note;
         $scope.frequency = newNote.frequency;
-        console.log($scope.frequency);
         //give the oscillator a frequency value
         oscillator.frequency.value = $scope.frequency; // value in hertz
     };
@@ -75,7 +72,6 @@ app.controller('SoundCtrl', function($scope, SelectedNoteData, $route) {
 		//closes the audioContext when the route changes
     $scope.$on('$routeChangeStart', function(next, current) {
         audioContext.close();
-        console.log('THE CONTEXT WAS CLOSED');
     });
 
 });

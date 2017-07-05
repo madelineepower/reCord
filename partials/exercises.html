@@ -1,16 +1,7 @@
 <div class="container exerciseView">
 <div class="row">
   <h4 class="col s11">MY EXERCISES</h4>
-  <a class='btn menuBtn col s1' href='javascript:void(0);' data-activates='exerciseDropdown' dropdown data-beloworigin="true">
-    <i class="large material-icons">list</i>
-  </a>
-  <div id="exerciseDropdown" class="dropdown-content">
-    <ul>
-      <li><a class="menuDrop" data-target="deleteAllModal" modal>Delete All</a></li>
-      <li><a class="menuDrop" data-target='exportModal' modal>Export</a></li>
-    </ul>
-  </div>
-
+  <a class="btn downloadBtn col s1" data-target='exportModal' modal><i class="material-icons">file_download</i></a>
 </div>
     <div class="row" ng-repeat= "exercise in exercises | orderBy:'dateOfExercise':true">
           <div class="card-panel col s12">
@@ -63,14 +54,18 @@
         <a class="modal-action modal-close waves-effect waves-green btn-flat">NO</a>
       </div>
     </div>
-
-    <div id="deleteAllModal" class="modal deleteModal">
-          <div class="modal-content">
-                <h4>Delete All Exercises?</h4>
+<!-- delete ALL modal -->
+        <div id="deleteAllModal" class="modal deleteModal">
+              <div class="modal-content">
+                    <h4>Delete All Exercises?</h4>
+              </div>
+        <div class="modal-footer">
+          <a ng-click="deleteAll()" class="modal-action modal-close waves-effect waves-green btn-flat">yes</a>
+          <a class="modal-action modal-close waves-effect waves-green btn-flat">no</a>
           </div>
-    <div class="modal-footer">
-      <a ng-click="deleteAll()" class="modal-action modal-close waves-effect waves-green btn-flat">yes</a>
-      <a class="modal-action modal-close waves-effect waves-green btn-flat">no</a>
-      </div>
-    </div>
+        </div>
+  <!-- end of modals -->
+  <div class="dltAllBtn center">
+    <a class="btn btn-small red" data-target="deleteAllModal" modal>Delete All</a>
+  </div>
 </div>

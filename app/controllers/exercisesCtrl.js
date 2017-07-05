@@ -8,7 +8,6 @@ app.controller('ExercisesCtrl', function($scope, DataFactory, AuthFactory, $q, $
 
 //get a given user's exercise list when the page is loaded
     $scope.getExerciseList = function() {
-        console.log(user);
         DataFactory.getUserExerciseList(user)
             .then(function(data) {
                 $scope.exercises = data;
@@ -39,7 +38,6 @@ app.controller('ExercisesCtrl', function($scope, DataFactory, AuthFactory, $q, $
     $scope.deleteAll = function() {
         var exerciseList = $scope.exercises;
         exerciseList.forEach(function(currVal) {
-            console.log(currVal);
             DataFactory.deleteExercise(currVal.id)
                 .then(function() {
                     $scope.getExerciseList();
@@ -47,7 +45,7 @@ app.controller('ExercisesCtrl', function($scope, DataFactory, AuthFactory, $q, $
         });
     };
 
-//make the PDF 
+//make the PDF
     $scope.makePDF = function() {
         var exerciseData = [];
         for (let item in $scope.exercises) {

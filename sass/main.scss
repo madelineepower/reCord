@@ -174,12 +174,8 @@ body {
   h4 {
     margin: 0;
   }
-  .menuBtn {
-    background-color: $secondary-color !important;
-  }
-
-  .menuDrop {
-    color: $tertiary-color;
+  .downloadBtn {
+    background-color: $secondary-color;
   }
 }
 
@@ -247,4 +243,11 @@ main {
   background-color: $secondary-color;
   color: $font;
   padding-top: 0 !important;
+}
+
+.dltAllBtn {
+  margin-bottom: 10px;
+  a:hover {
+    color: $font !important;
+  }
 }

@@ -25,7 +25,6 @@ app.controller('TimerViewCtrl', function($scope, $interval, $timeout, DataFactor
     $scope.start = function() {
         if (!timerPromise) {
             $scope.startTime = new Date();
-            console.log("startTime", $scope.startTime);
             timerPromise = $interval(function() {
                 $scope.timerStarted = true;
                 var now = new Date();

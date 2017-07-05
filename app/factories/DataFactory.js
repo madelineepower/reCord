@@ -25,7 +25,6 @@ var currentUserName = "";
           $http.get(`${FBCreds.databaseURL}/exercises.json?orderBy="uid"&equalTo="${userId}"`)
         .then((itemObject) => {
           let itemCollection = itemObject.data;
-          console.log("itemCollection", itemCollection);
           Object.keys(itemCollection).forEach((key) => {
             itemCollection[key].id = key;
             exercises.push(itemCollection[key]);
@@ -64,7 +63,6 @@ var currentUserName = "";
 
 const addUser = function(newUser){
    return $q((resolve, reject)=>{
-     console.log("adding new user to database");
        $http.post(`${FBCreds.databaseURL}/users.json`, newUser)
        .then((response)=>{
            resolve(response);

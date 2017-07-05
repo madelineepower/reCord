@@ -23,7 +23,6 @@ app.factory("AuthFactory", function($q, $http, $rootScope, FBCreds) {
 
 //Firebase: Return email, UID for user that is currently logged in.
   let getUser = () => {
-    console.log("currentUser", currentUser);
     return currentUser;
   };
 
