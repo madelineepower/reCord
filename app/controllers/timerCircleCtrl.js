@@ -9,7 +9,7 @@ app.controller('TimeCircleCtrl', ['$scope', '$interval', '$timeout', '$window', 
     $scope.timerCurrent = 0;
     $scope.uploadCurrent = 0;
     $scope.stroke = 6;
-    $scope.radius = 120;
+    $scope.radius = 80;
     $scope.isSemi = false;
     $scope.rounded = true;
     $scope.responsive = false;
@@ -19,6 +19,12 @@ app.controller('TimeCircleCtrl', ['$scope', '$interval', '$timeout', '$window', 
     $scope.duration = 800;
     $scope.currentAnimation = 'easeOutCubic';
     $scope.animationDelay = 0;
+
+    if (window.matchMedia("(min-width: 415px)").matches) {
+      $scope.radius = 120;
+    } else {
+      $scope.radius = 98;
+    }
 
     $scope.increment = function(amount) {
         $scope.current += (amount || 1);
