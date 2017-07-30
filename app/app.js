@@ -11,6 +11,7 @@ let isAuth = (AuthFactory) =>
         resolve();
       } else {
         console.log('Authenticated reject, GO AWAY');
+        alert("Please login or create an account to use reCord!");
         reject();
       }
     });
