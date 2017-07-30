@@ -10,6 +10,12 @@ a:hover {
 i:hover {
   color: $tertiary-color;
 }
+
+.aboutView {
+  p {
+    font-weight: lighter;
+  }
+}
 .progress-wrapper{
     position: absolute;
     margin: 30px auto;
@@ -43,8 +49,7 @@ nav {
   background-color: $secondary-color !important;
   height: 85px !important;
 }
-.nav-wrapper {
-}
+
 .NavBar {
   color: $font;
   border: none;
@@ -60,7 +65,6 @@ nav {
 
 .navLink:hover {
   background-color: $primary-color;
-  // height: px;
 }
 
 #timerCircle {

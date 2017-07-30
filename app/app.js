@@ -36,6 +36,10 @@ app.config(function($routeProvider) {
     controller: 'ExercisesCtrl',
     resolve: {isAuth}
   }).
+  when('/about', {
+    templateUrl: 'partials/about.html',
+    resolve: {isAuth}
+  }).
   otherwise('/');
 });
 
