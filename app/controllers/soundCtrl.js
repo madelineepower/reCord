@@ -1,9 +1,20 @@
 "use strict";
 
-app.controller('SoundCtrl', function($scope, SelectedNoteData, $route) {
+app.controller('SoundCtrl', function($scope, SelectedNoteData, $route, deviceDetector) {
 
     var audioContext;
+    var getDeviceData = function(){
+      $scope.data = deviceDetector;
+      $scope.allData = JSON.stringify($scope.data, null, 2);
+      console.log('device data', $scope.data.isMobile());
 
+      if ($scope.data.isMobile() === true) {
+        alert("I'm sorry - Audio is not supported for this device at this time!");
+      } else {
+        console.log("Audio is supported for this device");
+      }
+    };
+    getDeviceData();
 
     //make sure window is supported
     var isAudioContextSupported = function() {

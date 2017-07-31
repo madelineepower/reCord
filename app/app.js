@@ -1,6 +1,6 @@
 "use strict";
 
-const app = angular.module('reCord', ["ngRoute", "ui.materialize", "angular-svg-round-progressbar", "angularMoment"]);
+const app = angular.module('reCord', ["ngRoute", "ui.materialize", "angular-svg-round-progressbar", "angularMoment", "ng.deviceDetector"]);
 
 let isAuth = (AuthFactory) =>
   new Promise ((resolve, reject) => {
