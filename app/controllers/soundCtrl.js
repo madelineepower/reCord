@@ -12,10 +12,17 @@ app.controller('SoundCtrl', function($scope, SelectedNoteData, $route) {
             console.log("this window is supported");
             return true;
         } else {
-            console.log("NOT SUPPORTED");
+            alert("We're sorry - You're window is not supported to use the audio feature");
             return false;
         }
     };
+
+    //audio error on mobile browser
+    if (window.matchMedia("(min-width: 415px)").matches) {
+      //window is larger
+    } else {
+      //window is smaller than web browser
+    }
 
     //create the audioContext
 
@@ -25,13 +32,10 @@ app.controller('SoundCtrl', function($scope, SelectedNoteData, $route) {
         }
     };
     createAudioContext();
-
-    //create the oscillator
-    var oscillator = audioContext.createOscillator();
-    var gainNode = audioContext.createGain();
-    //give the oscialltor note a destination(device speaker)
-    gainNode.connect(audioContext.destination);
-    oscillator.type = 'triangle';
+      //create the oscillator
+      var oscillator = audioContext.createOscillator();
+      //give the oscialltor note a destination(device speaker)
+      oscillator.type = 'triangle';
 
     //get the frequencies
     let getNotes = function() {
@@ -53,10 +57,11 @@ app.controller('SoundCtrl', function($scope, SelectedNoteData, $route) {
     };
 
     //play the tone
+
     oscillator.start();
     $scope.playTone = function(event) {
         setFrequency();
-        oscillator.connect(gainNode);
+        oscillator.connect(audioContext.destination);
         $scope.tonePlaying = true;
     };
 
@@ -64,7 +69,7 @@ app.controller('SoundCtrl', function($scope, SelectedNoteData, $route) {
     $scope.stopTone = function(event) {
         if ($scope.tonePlaying) {
             oscillator.frequency.value = null;
-            oscillator.disconnect(gainNode);
+            oscillator.disconnect(audioContext.destination);
             $scope.tonePlaying = false;
         }
     };

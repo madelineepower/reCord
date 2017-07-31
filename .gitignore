@@ -4,3 +4,6 @@ lib/.sass-cache
 values/
 css/
 lib/bower_components
+public/
+.firebaserc
+firebase.json

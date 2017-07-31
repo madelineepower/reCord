@@ -149,6 +149,10 @@ body {
     border: none;
     margin-bottom: 20px;
   }
+  .browser-default {
+    background-color: $secondary-color !important;
+    border: none;
+  }
   .myModal {
     background-color: $secondary-color;
     .modal-footer {
