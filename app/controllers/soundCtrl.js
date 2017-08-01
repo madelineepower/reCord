@@ -9,12 +9,23 @@ app.controller('SoundCtrl', function($scope, SelectedNoteData, $route, deviceDet
       console.log('device data', $scope.data.isMobile());
 
       if ($scope.data.isMobile() === true) {
-        alert("I'm sorry - Audio is not supported for this device at this time!");
+        alert("Bummer! This audio feature is not supported on mobile devices quite yet!");
       } else {
         console.log("Audio is supported for this device");
       }
     };
-    getDeviceData();
+
+    var isTablet = function(){
+      $scope.data = deviceDetector;
+      $scope.allData = JSON.stringify($scope.data, null, 2);
+      if ($scope.data.isTablet() === true) {
+        alert("Bummer! reCord is not supported for tablet devices just yet!");
+      } else {
+        console.log("not tablet");
+      }
+    };
+    isTablet();
+
 
     //make sure window is supported
     var isAudioContextSupported = function() {
@@ -71,6 +82,7 @@ app.controller('SoundCtrl', function($scope, SelectedNoteData, $route, deviceDet
 
     oscillator.start();
     $scope.playTone = function(event) {
+        getDeviceData();
         setFrequency();
         oscillator.connect(audioContext.destination);
         $scope.tonePlaying = true;

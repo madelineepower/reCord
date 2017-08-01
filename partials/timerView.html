@@ -4,8 +4,8 @@
     <h5>Use the timer to track your progress</h5>
     <p>SELECT A VOWEL</p>
     <div input-field class="selectBox col s12">
-      <select class="browser-default right" name="selectedVowel" material-select watch ng-model="UserVowel.vowel">
-        <option value="">- choose vowel -</option>
+      <select class="right" name="selectedVowel" material-select watch ng-model="UserVowel.vowel">
+        <option value="">choose one</option>
         <option value="[e]">[e] "ay"</option>
         <option value="[i]">[i] "ee"</option>
         <option value="[o]">[o] "oh"</option>
@@ -16,8 +16,8 @@
     </div><br />
     <p>SELECT A PITCH</p>
     <div input-field class="selectBox col s9">
-      <select class="browser-default right" name="selectedNote" ng-model="selected.note" ng-options="note.note for note in notesArray" material-select watch>
-        <option value="">- choose pitch -</option>
+      <select class="right" name="selectedNote" ng-model="selected.note" ng-options="note.note for note in notesArray" material-select watch>
+        <option value="">choose one</option>
       </select>
     </div>
     <div class="soundBtns col s3">

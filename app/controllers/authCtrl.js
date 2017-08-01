@@ -53,7 +53,6 @@ app.controller("AuthCtrl", function($scope, $window, $location, AuthFactory, Dat
             .then(() => {
                 $scope.$apply();
                 $window.location.href = "#!/timer";
-                $location.reload();
             });
     };
 });

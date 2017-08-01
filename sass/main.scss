@@ -144,14 +144,21 @@ body {
   .selectBox {
     text-align: right;
   }
-  select {
-    background-color: $secondary-color !important;
-    border: none;
-    margin-bottom: 20px;
+  .select-wrapper {
+    width: 100%;
   }
-  .browser-default {
+  .select-dropdown {
     background-color: $secondary-color !important;
-    border: none;
+    border-bottom: none !important;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+  }
+  .dropdown-content li>a, .dropdown-content li>span {
+    color: $tertiary-color;
+  }
+  span.caret {
+    visibility: hidden;
   }
   .myModal {
     background-color: $secondary-color;
